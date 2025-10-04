@@ -23,5 +23,11 @@
 			"bucket_name": "personal-site-cache"
 		},
 	],
-	"preview_urls": true
+	"preview_urls": true,
+	"routes": [
+		{
+			"pattern": "henriquesf.me",
+			"custom_domain": true
+		}
+	]
 }
