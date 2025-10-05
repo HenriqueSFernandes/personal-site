@@ -1,20 +1,18 @@
+import { tennisBall } from "@lucide/lab";
 import {
 	ArrowLeft,
 	Cloud,
 	Code2,
-	Cpu,
 	Gamepad2,
 	Icon,
 	Music,
 	Network,
 	Server,
-	TennisRacket,
 	Wrench,
 } from "lucide-react";
 import IconCard from "@/components/cards/icon-card";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { tennisBall } from "@lucide/lab";
 
 export default function AboutPage() {
 	return (
