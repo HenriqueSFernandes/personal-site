@@ -25,7 +25,7 @@ export default function ProjectCard({
   demo,
 }: ProjectCardProps) {
   return (
-    <Card className="bg-card border-primary/20 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10 flex flex-col">
+    <Card className="bg-card/75 border-primary/20 hover:border-primary/60 transition-all hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] flex flex-col">
       <CardHeader>
         <div className="flex items-start justify-between gap-2 mb-2">
           <CardTitle className="text-xl text-primary">{name}</CardTitle>

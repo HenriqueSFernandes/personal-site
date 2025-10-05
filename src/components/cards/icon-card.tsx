@@ -8,7 +8,7 @@ interface IconCardProps {
 
 export default function IconCard({ title, description, icon }: IconCardProps) {
   return (
-    <Card className="p-6 bg-card/50 border-primary/20 hover:border-primary/40 transition-all hover:scale-[1.02]">
+    <Card className="p-6 bg-card/75 border-primary/20 hover:border-primary/60 transition-all hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02]">
       <div className="flex items-start gap-4">
         <div className="p-3 rounded-lg bg-primary/10">
           <div className="h-6 w-6 text-primary">{icon}</div>
