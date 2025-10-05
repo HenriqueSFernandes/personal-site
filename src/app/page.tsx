@@ -1,5 +1,5 @@
 import { FileText, FolderGit, Linkedin, Mail, User } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import CustomButton from "@/components/buttons/custom-button";
 
 export default function Home() {
 	return (
@@ -34,76 +34,45 @@ export default function Home() {
 					</section>
 
 					<section className="flex flex-wrap gap-4">
-						<Button
-							asChild
-							size="lg"
-							className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105"
-						>
-							<a href="/about" aria-label="About Me">
-								<User className="h-5 w-5" />
-								<span className="font-medium">About</span>
-							</a>
-						</Button>
+						<CustomButton
+							icon={<User />}
+							label="About"
+							href="/about"
+							variant="primary"
+							linkType="internal"
+						/>
 
-						<Button
-							asChild
-							size="lg"
-							className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105"
-						>
-							<a href="/projects" aria-label="View Projects">
-								<FolderGit className="h-5 w-5" />
-								<span className="font-medium">Projects</span>
-							</a>
-						</Button>
+						<CustomButton
+							icon={<FolderGit />}
+							label="Projects"
+							href="/projects"
+							variant="primary"
+							linkType="internal"
+						/>
 
-						<Button
-							asChild
+						<CustomButton
+							icon={<Linkedin />}
+							label="LinkedIn"
+							href="https://www.linkedin.com/in/-henriquesfernandes/"
 							variant="outline"
-							size="lg"
-							className="gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 bg-transparent"
-						>
-							<a
-								href="https://www.linkedin.com/in/-henriquesfernandes/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="LinkedIn Profile"
-							>
-								<Linkedin className="h-5 w-5" />
-								<span className="font-medium">LinkedIn</span>
-							</a>
-						</Button>
+							linkType="external"
+						/>
 
-						<Button
-							asChild
+						<CustomButton
+							icon={<FileText />}
+							label="CV"
+							href="https://cv.henriquesf.me"
 							variant="outline"
-							size="lg"
-							className="gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 bg-transparent"
-						>
-							<a
-								href="https://cv.henriquesf.me"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="View CV"
-							>
-								<FileText className="h-5 w-5" />
-								<span className="font-medium">CV</span>
-							</a>
-						</Button>
+							linkType="external"
+						/>
 
-						<Button
-							asChild
+						<CustomButton
+							icon={<Mail />}
+							label="Email"
+							href="mailto:henriquesardofernandes@gmail.com"
 							variant="outline"
-							size="lg"
-							className="gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 bg-transparent"
-						>
-							<a
-								href="mailto:henriquesardofernandes@gmail.com"
-								aria-label="Send Email"
-							>
-								<Mail className="h-5 w-5" />
-								<span className="font-medium">Email</span>
-							</a>
-						</Button>
+							linkType="external"
+						/>
 					</section>
 				</div>
 			</div>
