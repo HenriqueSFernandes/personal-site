@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Henrique Sardo Fernandes",
-	description: "MSc Student in Informatics and Computing Engineering at FEUP",
+  title: "Henrique Sardo Fernandes",
+  description: "MSc Student in Informatics and Computing Engineering at FEUP",
 };
 
 export default function RootLayout({
