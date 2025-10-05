@@ -11,23 +11,20 @@ import {
 	Wrench,
 } from "lucide-react";
 import IconCard from "@/components/cards/icon-card";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import CustomButton from "@/components/buttons/custom-button";
 
 export default function AboutPage() {
 	return (
 		<main className="min-h-screen bg-background p-4 md:p-8">
 			<div className="max-w-5xl mx-auto space-y-8 md:space-y-12 py-8">
-				<Button
-					asChild
+				<CustomButton
+					icon={<ArrowLeft />}
+					label="Back to Home"
+					href="/"
+					linkType="internal"
 					variant="outline"
-					className="gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 bg-transparent"
-				>
-					<a href="/">
-						<ArrowLeft className="h-4 w-4" />
-						<span>Back to Home</span>
-					</a>
-				</Button>
+				/>
 
 				<header className="space-y-4">
 					<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent">

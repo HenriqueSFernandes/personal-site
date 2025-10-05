@@ -1,4 +1,5 @@
 import { ArrowLeft, ExternalLink, Github, Users } from "lucide-react";
+import CustomButton from "@/components/buttons/custom-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,6 +9,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
+import ProjectCard from "@/components/cards/project-card";
 
 const projects = [
 	{
@@ -88,16 +90,13 @@ export default function ProjectsPage() {
 	return (
 		<main className="min-h-screen bg-background p-4 md:p-8">
 			<div className="max-w-5xl mx-auto space-y-8 md:space-y-12 py-8">
-				<Button
-					asChild
+				<CustomButton
+					icon={<ArrowLeft />}
+					label="Back to Home"
+					href="/"
+					linkType="internal"
 					variant="outline"
-					className="gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 bg-transparent"
-				>
-					<a href="/">
-						<ArrowLeft className="h-4 w-4" />
-						<span>Back to Home</span>
-					</a>
-				</Button>
+				/>
 				<header className="space-y-4">
 					<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent">
 						Projects
@@ -110,67 +109,14 @@ export default function ProjectsPage() {
 
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 					{projects.map((project) => (
-						<Card
+						<ProjectCard
 							key={project.name}
-							className="bg-card border-primary/20 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10 flex flex-col"
-						>
-							<CardHeader>
-								<div className="flex items-start justify-between gap-2 mb-2">
-									<CardTitle className="text-xl text-primary">
-										{project.name}
-									</CardTitle>
-									<Badge
-										variant="secondary"
-										className="flex items-center gap-1 shrink-0"
-									>
-										<Users className="h-3 w-3" />
-										{project.teamSize}
-									</Badge>
-								</div>
-								<CardDescription className="text-foreground/70 leading-relaxed">
-									{project.description}
-								</CardDescription>
-							</CardHeader>
-
-							<CardContent className="mt-auto">
-								<div className="flex flex-wrap gap-2">
-									<Button
-										asChild
-										size="sm"
-										className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105"
-									>
-										<a
-											href={project.github}
-											target="_blank"
-											rel="noopener noreferrer"
-											aria-label="View on GitHub"
-										>
-											<Github className="h-4 w-4" />
-											GitHub
-										</a>
-									</Button>
-
-									{project.demo && (
-										<Button
-											asChild
-											variant="outline"
-											size="sm"
-											className="gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 bg-transparent"
-										>
-											<a
-												href={project.demo}
-												target="_blank"
-												rel="noopener noreferrer"
-												aria-label="View demo"
-											>
-												<ExternalLink className="h-4 w-4" />
-												Demo
-											</a>
-										</Button>
-									)}
-								</div>
-							</CardContent>
-						</Card>
+							name={project.name}
+							description={project.description}
+							teamSize={project.teamSize}
+							github={project.github}
+							demo={project.demo}
+						/>
 					))}
 				</div>
 			</div>
