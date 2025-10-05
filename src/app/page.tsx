@@ -1,4 +1,4 @@
-import { FileText, Linkedin, Mail } from "lucide-react";
+import { FileText, FolderGit, Linkedin, Mail, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
@@ -39,8 +39,19 @@ export default function Home() {
 							size="lg"
 							className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105"
 						>
+							<a href="/about" aria-label="About Me">
+								<User className="h-5 w-5" />
+								<span className="font-medium">About</span>
+							</a>
+						</Button>
+
+						<Button
+							asChild
+							size="lg"
+							className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105"
+						>
 							<a href="/projects" aria-label="View Projects">
-								<FileText className="h-5 w-5" />
+								<FolderGit className="h-5 w-5" />
 								<span className="font-medium">Projects</span>
 							</a>
 						</Button>
@@ -49,7 +60,7 @@ export default function Home() {
 							asChild
 							variant="outline"
 							size="lg"
-							className="gap-2 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all hover:scale-105 bg-transparent"
+							className="gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 bg-transparent"
 						>
 							<a
 								href="https://www.linkedin.com/in/-henriquesfernandes/"
@@ -66,7 +77,7 @@ export default function Home() {
 							asChild
 							variant="outline"
 							size="lg"
-							className="gap-2 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all hover:scale-105 bg-transparent"
+							className="gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 bg-transparent"
 						>
 							<a
 								href="https://cv.henriquesf.me"
@@ -83,7 +94,7 @@ export default function Home() {
 							asChild
 							variant="outline"
 							size="lg"
-							className="gap-2 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all hover:scale-105 bg-transparent"
+							className="gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 bg-transparent"
 						>
 							<a
 								href="mailto:henriquesardofernandes@gmail.com"

@@ -86,28 +86,27 @@ const projects = [
 
 export default function ProjectsPage() {
 	return (
-		<main className="min-h-screen bg-background p-4 md:p-8 lg:p-12">
-			<div className="max-w-6xl mx-auto">
-				<div className="mb-8 md:mb-12">
-					<Button
-						asChild
-						variant="ghost"
-						className="mb-6 text-primary hover:text-primary/80 hover:bg-primary/10 -ml-4"
-					>
-						<a href="/" aria-label="Back to home">
-							<ArrowLeft className="h-5 w-5 mr-2" />
-							Back
-						</a>
-					</Button>
-
-					<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-balance bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent mb-4">
+		<main className="min-h-screen bg-background p-4 md:p-8">
+			<div className="max-w-5xl mx-auto space-y-8 md:space-y-12 py-8">
+				<Button
+					asChild
+					variant="outline"
+					className="gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 bg-transparent"
+				>
+					<a href="/">
+						<ArrowLeft className="h-4 w-4" />
+						<span>Back to Home</span>
+					</a>
+				</Button>
+				<header className="space-y-4">
+					<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent">
 						Projects
 					</h1>
-					<p className="text-lg md:text-xl text-foreground/70">
+					<p className="text-xl md:text-2xl text-foreground/80 font-light">
 						A collection of some projects I've worked on, showcasing my skills
 						and interests.
 					</p>
-				</div>
+				</header>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 					{projects.map((project) => (
@@ -156,7 +155,7 @@ export default function ProjectsPage() {
 											asChild
 											variant="outline"
 											size="sm"
-											className="gap-2 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all hover:scale-105 bg-transparent"
+											className="gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 bg-transparent"
 										>
 											<a
 												href={project.demo}
