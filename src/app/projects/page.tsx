@@ -1,5 +1,6 @@
 import CustomButton from "@/components/buttons/custom-button";
 import ProjectCard from "@/components/cards/project-card";
+import { ArrowLeft } from "lucide-react";
 
 const projects = [
   {
