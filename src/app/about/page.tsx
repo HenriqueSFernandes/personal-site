@@ -3,13 +3,18 @@ import {
 	Cloud,
 	Code2,
 	Cpu,
+	Gamepad2,
+	Icon,
 	Music,
 	Network,
 	Server,
+	TennisRacket,
 	Wrench,
 } from "lucide-react";
+import IconCard from "@/components/cards/icon-card";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { tennisBall } from "@lucide/lab";
 
 export default function AboutPage() {
 	return (
@@ -35,7 +40,6 @@ export default function AboutPage() {
 					</p>
 				</header>
 
-				{/* Background Section */}
 				<section className="space-y-4">
 					<h2 className="text-2xl md:text-3xl font-bold text-primary">
 						Background
@@ -70,73 +74,29 @@ export default function AboutPage() {
 						Technical Skills
 					</h2>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-						<Card className="p-6 bg-card/50 border-primary/20 hover:border-primary/40 transition-all hover:scale-[1.02]">
-							<div className="flex items-start gap-4">
-								<div className="p-3 rounded-lg bg-primary/10">
-									<Server className="h-6 w-6 text-primary" />
-								</div>
-								<div className="space-y-2">
-									<h3 className="text-lg font-semibold text-foreground">
-										Backend Systems
-									</h3>
-									<p className="text-sm text-foreground/70">
-										Building scalable, efficient server-side applications and
-										APIs with a focus on performance and reliability.
-									</p>
-								</div>
-							</div>
-						</Card>
+						<IconCard
+							title="Backend Systems"
+							description="Building scalable, efficient server-side applications and APIs with a focus on performance and reliability."
+							icon={<Server />}
+						/>
 
-						<Card className="p-6 bg-card/50 border-primary/20 hover:border-primary/40 transition-all hover:scale-[1.02]">
-							<div className="flex items-start gap-4">
-								<div className="p-3 rounded-lg bg-primary/10">
-									<Code2 className="h-6 w-6 text-primary" />
-								</div>
-								<div className="space-y-2">
-									<h3 className="text-lg font-semibold text-foreground">
-										DevOps
-									</h3>
-									<p className="text-sm text-foreground/70">
-										Automating deployment pipelines, CI/CD workflows, and
-										infrastructure management for seamless development cycles.
-									</p>
-								</div>
-							</div>
-						</Card>
+						<IconCard
+							title="DevOps"
+							description="Automating deployment pipelines, CI/CD workflows, and infrastructure management for seamless development cycles."
+							icon={<Code2 />}
+						/>
 
-						<Card className="p-6 bg-card/50 border-primary/20 hover:border-primary/40 transition-all hover:scale-[1.02]">
-							<div className="flex items-start gap-4">
-								<div className="p-3 rounded-lg bg-primary/10">
-									<Cloud className="h-6 w-6 text-primary" />
-								</div>
-								<div className="space-y-2">
-									<h3 className="text-lg font-semibold text-foreground">
-										Cloud Architecture
-									</h3>
-									<p className="text-sm text-foreground/70">
-										Designing and implementing cloud-native solutions with a
-										focus on scalability, security, and cost-efficiency.
-									</p>
-								</div>
-							</div>
-						</Card>
+						<IconCard
+							title="Cloud Architecture"
+							description="Designing and implementing cloud-native solutions with a focus on scalability, security, and cost-efficiency."
+							icon={<Cloud />}
+						/>
 
-						<Card className="p-6 bg-card/50 border-primary/20 hover:border-primary/40 transition-all hover:scale-[1.02]">
-							<div className="flex items-start gap-4">
-								<div className="p-3 rounded-lg bg-primary/10">
-									<Network className="h-6 w-6 text-primary" />
-								</div>
-								<div className="space-y-2">
-									<h3 className="text-lg font-semibold text-foreground">
-										Networking
-									</h3>
-									<p className="text-sm text-foreground/70">
-										Understanding network protocols, architecture, and security
-										to build resilient distributed systems.
-									</p>
-								</div>
-							</div>
-						</Card>
+						<IconCard
+							title="Networking"
+							description="Understanding network protocols, architecture, and security to build resilient distributed systems."
+							icon={<Network />}
+						/>
 					</div>
 				</section>
 
@@ -145,52 +105,30 @@ export default function AboutPage() {
 					<h2 className="text-2xl md:text-3xl font-bold text-primary">
 						Beyond Code
 					</h2>
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-						<Card className="p-6 bg-card/50 border-primary/20 hover:border-primary/40 transition-all hover:scale-[1.02]">
-							<div className="space-y-3">
-								<div className="p-3 rounded-lg bg-primary/10 w-fit">
-									<Music className="h-6 w-6 text-primary" />
-								</div>
-								<h3 className="text-lg font-semibold text-foreground">Music</h3>
-								<p className="text-sm text-foreground/70 text-pretty">
-									I have a classical piano course and currently play guitar. I'm
-									a big fan of metal music and love exploring different genres
-									and techniques.
-								</p>
-							</div>
-						</Card>
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+						<IconCard
+							title="Music"
+							description="I have a classical piano course and currently play guitar. I'm a big fan of metal music and love exploring different genres and techniques."
+							icon={<Music />}
+						/>
 
-						<Card className="p-6 bg-card/50 border-primary/20 hover:border-primary/40 transition-all hover:scale-[1.02]">
-							<div className="space-y-3">
-								<div className="p-3 rounded-lg bg-primary/10 w-fit">
-									<Wrench className="h-6 w-6 text-primary" />
-								</div>
-								<h3 className="text-lg font-semibold text-foreground">
-									Building Things
-								</h3>
-								<p className="text-sm text-foreground/70 text-pretty">
-									I've always loved building cool stuff, whether it's software
-									projects, hardware experiments, or just tinkering with
-									technology to see what's possible.
-								</p>
-							</div>
-						</Card>
+						<IconCard
+							title="Tennis"
+							description="I'm an avid tennis player and enjoy the combination of physical activity and strategy the sport demands. It's a great way to stay active and competitive."
+							icon={<Icon iconNode={tennisBall} />}
+						/>
 
-						<Card className="p-6 bg-card/50 border-primary/20 hover:border-primary/40 transition-all hover:scale-[1.02]">
-							<div className="space-y-3">
-								<div className="p-3 rounded-lg bg-primary/10 w-fit">
-									<Cpu className="h-6 w-6 text-primary" />
-								</div>
-								<h3 className="text-lg font-semibold text-foreground">
-									Computer Enthusiast
-								</h3>
-								<p className="text-sm text-foreground/70 text-pretty">
-									From a young age, I've been fascinated by computers and how
-									they work. I enjoy exploring new technologies and
-									understanding systems at a deep level.
-								</p>
-							</div>
-						</Card>
+						<IconCard
+							title="Building Things"
+							description="I've always loved building cool stuff, whether it's software projects, hardware experiments, or just tinkering with technology to see what's possible."
+							icon={<Wrench />}
+						/>
+
+						<IconCard
+							title="Gaming"
+							description="Whether it's immersing myself in a game with a good story or enjoying the challenge of competitive titles, I find gaming is a great way to unwind and appreciate interactive storytelling. My current favorite is Clair Obscur: Expedition 33."
+							icon={<Gamepad2 />}
+						/>
 					</div>
 				</section>
 
