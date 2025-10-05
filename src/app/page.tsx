@@ -52,7 +52,7 @@ export default function Home() {
 							className="gap-2 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all hover:scale-105 bg-transparent"
 						>
 							<a
-								href="https://linkedin.com"
+								href="https://www.linkedin.com/in/-henriquesfernandes/"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="LinkedIn Profile"
