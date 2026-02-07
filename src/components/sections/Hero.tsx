@@ -22,11 +22,10 @@ const Hero = () => {
     { text: '    "net/http"', color: "text-green-400", id: 6 },
     { text: ")", color: "text-purple-400", id: 7 },
     { text: "", color: "", id: 8 },
-    { text: "// Building resilient systems", color: "text-gray-500", id: 9 },
-    { text: "func main() {", color: "text-blue-400", id: 10 },
-    { text: "    srv := NewServer()", color: "text-white", id: 11 },
-    { text: "    srv.Run(context.Background())", color: "text-white", id: 12 },
-    { text: "}", color: "text-blue-400", id: 13 },
+    { text: "func main() {", color: "text-blue-400", id: 9 },
+    { text: "    srv := NewServer()", color: "text-white", id: 10 },
+    { text: "    srv.Run(context.Background())", color: "text-white", id: 11 },
+    { text: "}", color: "text-blue-400", id: 12 },
   ];
 
   useEffect(() => {
@@ -191,7 +190,9 @@ const Hero = () => {
                         <span className="text-gray-600 w-6 text-right mr-4 select-none">
                           {index + 1}
                         </span>
-                        <span className={line.color}>{line.text}</span>
+                        <span className={`${line.color} whitespace-pre`}>
+                          {line.text}
+                        </span>
                       </div>
                     ))}
                     <div className="flex mt-1">
