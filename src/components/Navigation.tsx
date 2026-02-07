@@ -42,7 +42,7 @@ const Navigation = () => {
         <div className="w-full px-6 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <button
-							type="button"
+              type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="font-display text-xl lg:text-2xl tracking-wider text-white hover:text-toxic-lime transition-colors duration-300"
             >
@@ -52,7 +52,7 @@ const Navigation = () => {
             <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
-									type="button"
+                  type="button"
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
                   className="relative font-body text-sm tracking-widest text-text-secondary hover:text-white transition-colors duration-300 group"
@@ -83,7 +83,7 @@ const Navigation = () => {
             </div>
 
             <button
-							type="button"
+              type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 text-white hover:text-toxic-lime transition-colors"
             >
@@ -101,7 +101,7 @@ const Navigation = () => {
         <div className="flex flex-col items-center justify-center h-full gap-8">
           {navLinks.map((link, index) => (
             <button
-							type="button"
+              type="button"
               key={link.id}
               onClick={() => scrollToSection(link.id)}
               className="font-display text-4xl text-white hover:text-toxic-lime transition-colors duration-300"

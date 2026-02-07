@@ -41,7 +41,7 @@ const Projects = () => {
       teamSize: 1,
       technologies: ["Next.js", "Elysia.js", "PostgreSQL", "Docker"],
       githubUrl: "https://github.com/HenriqueSFernandes/ClipNest/",
-			demoUrl: "https://clipnest.cloud/",
+      demoUrl: "https://clipnest.cloud/",
       color: "#94ffd0",
     },
     {
@@ -53,7 +53,8 @@ const Projects = () => {
       teamSize: 65,
       technologies: ["Flutter", "NestJS"],
       githubUrl: "https://github.com/niaefeup/uni",
-      demoUrl: "https://play.google.com/store/apps/details?id=pt.up.fe.ni.uni&hl=pt_PT",
+      demoUrl:
+        "https://play.google.com/store/apps/details?id=pt.up.fe.ni.uni&hl=pt_PT",
       color: "#ff94d0",
     },
     {
@@ -76,7 +77,7 @@ const Projects = () => {
       teamSize: 4,
       technologies: ["Next.js"],
       githubUrl: "https://github.com/NIAEFEUP/iNIcio/",
-			demoUrl: "https://inicio.niaefeup.pt",
+      demoUrl: "https://inicio.niaefeup.pt",
       color: "#ffd094",
     },
     {
@@ -146,6 +147,7 @@ const Projects = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {projects.map((project, index) => (
               <div
+                role="none"
                 key={project.id}
                 className={`group relative bg-charcoal border border-white/10 rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-toxic-lime/30 ${
                   isVisible

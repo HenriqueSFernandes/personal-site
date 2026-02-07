@@ -5,11 +5,11 @@ import {
   Cloud,
   Cpu,
   Gamepad2,
-	Icon,
+  Icon,
   Music,
   Network,
   Server,
-	Wrench
+  Wrench,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -124,8 +124,8 @@ const About = () => {
                 </p>
                 <p className="font-body text-lg text-text-secondary leading-relaxed mb-6">
                   I hold a BSc in Informatics and Computing Engineering from{" "}
-                  <span className="text-toxic-lime font-medium">FEUP</span> and am
-                  currently pursuing an MSc in the same field, where I am
+                  <span className="text-toxic-lime font-medium">FEUP</span> and
+                  am currently pursuing an MSc in the same field, where I am
                   further developing my skills and knowledge.
                 </p>
                 <p className="font-body text-lg text-text-secondary leading-relaxed">
@@ -197,12 +197,12 @@ const About = () => {
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-toxic-lime">{skill.icon}</span>
                       <span className="font-body text-white">{skill.name}</span>
-											{ /*
+                      {/*
 											i should uncomment this to enable the percentage
                       <span className="font-body text-sm text-text-secondary ml-auto">
                         {skill.level}%
                       </span>
-											*/ }
+											*/}
                     </div>
                     <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                       <div
@@ -226,10 +226,10 @@ const About = () => {
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {[
-										"C++",
-										"Flutter",
-										"Java",
-										"React",
+                    "C++",
+                    "Flutter",
+                    "Java",
+                    "React",
                     "Docker",
                     "GitHub Actions",
                     "JavaScript",
@@ -239,7 +239,7 @@ const About = () => {
                     "REST APIs",
                     "Terraform",
                     "gRPC",
-										"And more..."
+                    "And more...",
                   ].map((tech) => (
                     <span
                       key={tech}

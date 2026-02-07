@@ -11,6 +11,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  // biome-ignore lint/correctness/noUnusedVariables: <i have not implemented form submission yet>
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -106,7 +107,8 @@ const Contact = () => {
               LET&apos;S <span className="text-toxic-lime">TALK</span>
             </h2>
             <p className="font-body text-lg text-text-secondary mt-6 max-w-xl mx-auto">
-							Feel free to contact me if you’d like to talk, collaborate, or just say hello.
+              Feel free to contact me if you’d like to talk, collaborate, or
+              just say hello.
             </p>
           </div>
 
@@ -231,7 +233,7 @@ const Contact = () => {
                   className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-toxic-lime text-dark-void rounded-lg font-body font-medium hover:bg-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
                 >
                   {submitted ? (
-                    <>Still building this - use email for now!</>
+                    <p>Still building this - use email for now!</p>
                   ) : (
                     <>
                       <Send size={18} />
@@ -247,7 +249,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-
     </section>
   );
 };
