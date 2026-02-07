@@ -1,22 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Teko } from "next/font/google";
 import "./globals.css";
-import { Suspense } from "react";
-import { AnimatedBackground } from "@/components/animated-background";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-body",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const teko = Teko({
   subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "Henrique Sardo Fernandes",
-  description: "MSc Student in Informatics and Computing Engineering at FEUP",
+  description: "Software Engineer | Backend Specialist | DevOps Enthusiast",
 };
 
 export default function RootLayout({
@@ -25,10 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${geistSans.variable} ${geistMono.variable}`}>
-        <AnimatedBackground />
-        <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={`${inter.variable} ${teko.variable} font-body antialiased bg-dark-void text-white`}
+      >
+        {children}
       </body>
     </html>
   );
