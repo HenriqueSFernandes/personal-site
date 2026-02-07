@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  ChevronDown,
-  Cloud,
-  Database,
-  FileText,
-  Linkedin,
-  Mail,
-  Server,
-  Terminal,
-} from "lucide-react";
+import { ChevronDown, FileText, Linkedin, Mail, Terminal } from "lucide-react";
 import { useEffect, useState } from "react";
 
 interface CodeLine {
@@ -84,24 +75,6 @@ const Hero = () => {
           backgroundSize: "50px 50px",
         }}
       />
-
-      <div className="absolute inset-0 pointer-events-none hidden lg:block">
-        <div className="absolute top-[20%] right-[15%] text-toxic-lime/10 animate-float">
-          <Server size={120} strokeWidth={0.5} />
-        </div>
-        <div
-          className="absolute bottom-[25%] right-[8%] text-toxic-lime/5 animate-float"
-          style={{ animationDelay: "2s" }}
-        >
-          <Database size={80} strokeWidth={0.5} />
-        </div>
-        <div
-          className="absolute top-[40%] right-[25%] text-toxic-lime/5 animate-float"
-          style={{ animationDelay: "4s" }}
-        >
-          <Cloud size={60} strokeWidth={0.5} />
-        </div>
-      </div>
 
       {/* Content */}
       <div className="relative z-10 w-full px-6 sm:px-8 lg:px-12 pt-20">
@@ -240,23 +213,6 @@ const Hero = () => {
                     </div>
                   </div>
                 </div>
-
-                <div className="absolute -top-4 -right-4 w-24 h-24 border border-toxic-lime/20 rounded-lg" />
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 border border-white/10 rounded-lg" />
-
-                <svg
-                  className="absolute -left-20 top-1/2 w-20 h-20 text-toxic-lime/20"
-                  viewBox="0 0 80 80"
-                >
-                  <title>line</title>
-                  <path
-                    d="M0,40 Q40,40 40,0"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    strokeDasharray="4 4"
-                  />
-                </svg>
               </div>
             </div>
           </div>
