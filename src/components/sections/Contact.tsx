@@ -34,13 +34,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
     setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
 
     setTimeout(() => setSubmitted(false), 3000);
   };
@@ -233,16 +227,11 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={submitted}
                   className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-toxic-lime text-dark-void rounded-lg font-body font-medium hover:bg-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-dark-void/30 border-t-dark-void rounded-full animate-spin" />
-                      SENDING...
-                    </>
-                  ) : submitted ? (
-                    <>MESSAGE SENT!</>
+                  {submitted ? (
+                    <>Still building this - use email for now!</>
                   ) : (
                     <>
                       <Send size={18} />
