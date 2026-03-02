@@ -6,8 +6,7 @@ import appCss from "../styles.css?url";
 
 const SITE_URL = "https://henriquesf.me";
 const SITE_TITLE = "Henrique Fernandes - Software Engineer";
-const SITE_DESCRIPTION =
-	"My personal portfolio.";
+const SITE_DESCRIPTION = "My personal portfolio.";
 
 export const Route = createRootRoute({
 	head: () => ({
