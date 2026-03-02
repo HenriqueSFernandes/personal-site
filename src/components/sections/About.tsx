@@ -3,20 +3,21 @@
 import { tennisBall } from "@lucide/lab";
 import {
 	Cloud,
+	Code2,
 	Cpu,
+	Database,
 	Gamepad2,
 	Icon,
 	Music,
 	Network,
-	Server,
 	Wrench,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-interface Skill {
-	name: string;
-	level: number;
+interface SkillCategory {
+	label: string;
 	icon: React.ReactNode;
+	skills: string[];
 }
 
 interface Interest {
@@ -29,11 +30,39 @@ const About = () => {
 	const sectionRef = useRef<HTMLElement>(null);
 	const [isVisible, setIsVisible] = useState(false);
 
-	const skills: Skill[] = [
-		{ name: "Backend Systems", level: 100, icon: <Server size={20} /> },
-		{ name: "Cloud Architecture", level: 100, icon: <Cloud size={20} /> },
-		{ name: "DevOps & CI/CD", level: 100, icon: <Cpu size={20} /> },
-		{ name: "Networking", level: 100, icon: <Network size={20} /> },
+	const skillCategories: SkillCategory[] = [
+		{
+			label: "Languages",
+			icon: <Code2 size={16} />,
+			skills: ["TypeScript", "Python", "Go", "Java", "C++", "Dart"],
+		},
+		{
+			label: "Frameworks & Libraries",
+			icon: <Network size={16} />,
+			skills: ["React", "Next.js", "Flutter", "NestJS", "Elysia.js", "Laravel"],
+		},
+		{
+			label: "Infrastructure & DevOps",
+			icon: <Cpu size={16} />,
+			skills: [
+				"Docker",
+				"Kubernetes",
+				"Ansible",
+				"Terraform",
+				"GitHub Actions",
+				"Linux",
+			],
+		},
+		{
+			label: "Data & APIs",
+			icon: <Database size={16} />,
+			skills: ["PostgreSQL", "REST APIs", "gRPC"],
+		},
+		{
+			label: "Cloud",
+			icon: <Cloud size={16} />,
+			skills: ["Cloudflare", "Google Cloud"],
+		},
 	];
 
 	const interests: Interest[] = [
@@ -188,67 +217,29 @@ const About = () => {
 							</h3>
 
 							<div className="space-y-6">
-								{skills.map((skill, index) => (
+								{skillCategories.map((category, index) => (
 									<div
-										key={skill.name}
-										className="group"
-										style={{ transitionDelay: `${index * 100}ms` }}
+										key={category.label}
+										style={{ transitionDelay: `${400 + index * 80}ms` }}
 									>
-										<div className="flex items-center gap-3 mb-2">
-											<span className="text-toxic-lime">{skill.icon}</span>
-											<span className="font-body text-white">{skill.name}</span>
-											{/*
-											i should uncomment this to enable the percentage
-                      <span className="font-body text-sm text-text-secondary ml-auto">
-                        {skill.level}%
-                      </span>
-											*/}
+										<div className="flex items-center gap-2 mb-3">
+											<span className="text-toxic-lime">{category.icon}</span>
+											<span className="font-body text-xs text-text-secondary tracking-widest">
+												{category.label.toUpperCase()}
+											</span>
 										</div>
-										<div className="h-2 bg-white/10 rounded-full overflow-hidden">
-											<div
-												className={`h-full bg-gradient-to-r from-toxic-lime to-white rounded-full transition-all duration-1000 ease-out ${
-													isVisible ? "opacity-100" : "opacity-0"
-												}`}
-												style={{
-													width: isVisible ? `${skill.level}%` : "0%",
-													transitionDelay: `${600 + index * 150}ms`,
-												}}
-											/>
+										<div className="flex flex-wrap gap-2">
+											{category.skills.map((skill) => (
+												<span
+													key={skill}
+													className="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm font-body text-text-secondary hover:border-toxic-lime hover:text-toxic-lime transition-all duration-300 cursor-default"
+												>
+													{skill}
+												</span>
+											))}
 										</div>
 									</div>
 								))}
-							</div>
-
-							{/* Tech Stack */}
-							<div className="mt-10">
-								<h4 className="font-body text-sm text-text-secondary mb-4 tracking-widest">
-									TECHNOLOGIES I WORK WITH
-								</h4>
-								<div className="flex flex-wrap gap-2">
-									{[
-										"C++",
-										"Flutter",
-										"Java",
-										"React",
-										"Docker",
-										"GitHub Actions",
-										"JavaScript",
-										"Linux",
-										"PostgreSQL",
-										"Python",
-										"REST APIs",
-										"Terraform",
-										"gRPC",
-										"And more...",
-									].map((tech) => (
-										<span
-											key={tech}
-											className="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm font-body text-text-secondary hover:border-toxic-lime hover:text-toxic-lime transition-all duration-300 cursor-default"
-										>
-											{tech}
-										</span>
-									))}
-								</div>
 							</div>
 						</div>
 					</div>

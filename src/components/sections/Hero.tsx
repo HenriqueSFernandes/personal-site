@@ -1,6 +1,13 @@
 "use client";
 
-import { ChevronDown, FileText, Linkedin, Mail, Terminal } from "lucide-react";
+import {
+	ChevronDown,
+	FileText,
+	Github,
+	Linkedin,
+	Mail,
+	Terminal,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 
 interface CodeLine {
@@ -14,18 +21,24 @@ const Hero = () => {
 	const [typedLines, setTypedLines] = useState<CodeLine[]>([]);
 
 	const codeLines: CodeLine[] = [
-		{ text: "package main", color: "text-purple-400", id: 1 },
-		{ text: "", color: "", id: 2 },
-		{ text: "import (", color: "text-purple-400", id: 3 },
-		{ text: '    "context"', color: "text-green-400", id: 4 },
-		{ text: '    "log"', color: "text-green-400", id: 5 },
-		{ text: '    "net/http"', color: "text-green-400", id: 6 },
-		{ text: ")", color: "text-purple-400", id: 7 },
-		{ text: "", color: "", id: 8 },
-		{ text: "func main() {", color: "text-blue-400", id: 9 },
-		{ text: "    srv := NewServer()", color: "text-white", id: 10 },
-		{ text: "    srv.Run(context.Background())", color: "text-white", id: 11 },
-		{ text: "}", color: "text-blue-400", id: 12 },
+		{ text: 'import { Hono } from "hono"', color: "text-purple-400", id: 1 },
+		{
+			text: 'import { serve } from "@hono/node-server"',
+			color: "text-purple-400",
+			id: 2,
+		},
+		{ text: "", color: "", id: 3 },
+		{ text: "const app = new Hono()", color: "text-blue-400", id: 4 },
+		{ text: "", color: "", id: 5 },
+		{ text: 'app.get("/", (c) => {', color: "text-yellow-400", id: 6 },
+		{ text: "  return c.json({", color: "text-white", id: 7 },
+		{ text: '    name: "Henrique Fernandes",', color: "text-green-400", id: 8 },
+		{ text: '    role: "Software Engineer",', color: "text-green-400", id: 9 },
+		{ text: '    status: "building...",', color: "text-green-400", id: 10 },
+		{ text: "  })", color: "text-white", id: 11 },
+		{ text: "})", color: "text-yellow-400", id: 12 },
+		{ text: "", color: "", id: 13 },
+		{ text: "serve(app)", color: "text-blue-400", id: 14 },
 	];
 
 	useEffect(() => {
@@ -159,6 +172,15 @@ const Hero = () => {
 									<Linkedin size={18} />
 									LINKEDIN
 								</a>
+								<a
+									href="https://github.com/HenriqueSFernandes"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex items-center gap-3 px-6 py-3 border border-white/20 text-white rounded font-body text-sm hover:border-toxic-lime hover:text-toxic-lime transition-all duration-300"
+								>
+									<Github size={18} />
+									GITHUB
+								</a>
 							</div>
 						</div>
 						<div className="hidden lg:flex justify-end items-center">
@@ -179,7 +201,7 @@ const Hero = () => {
 										<div className="flex items-center gap-2 ml-4 text-text-secondary">
 											<Terminal size={14} />
 											<span className="font-mono text-xs">
-												main.go — ~/projects/portfolio
+												index.ts — ~/projects/portfolio
 											</span>
 										</div>
 									</div>
@@ -206,7 +228,7 @@ const Hero = () => {
 									<div className="flex items-center justify-between px-4 py-2 bg-white/5 border-t border-white/10 text-xs text-text-secondary">
 										<div className="flex items-center gap-4">
 											<span>UTF-8</span>
-											<span>Go</span>
+											<span>TypeScript</span>
 										</div>
 										<div className="flex items-center gap-2">
 											<span className="w-2 h-2 rounded-full bg-toxic-lime animate-pulse" />
