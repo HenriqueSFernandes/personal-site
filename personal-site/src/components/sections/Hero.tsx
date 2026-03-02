@@ -84,7 +84,7 @@ const Hero = () => {
               <div
                 className={`transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
               >
-                <h1 className="font-display text-[12vw] sm:text-[10vw] lg:text-[8vw] leading-[0.9] tracking-tight text-white">
+                <h1 className="font-display text-[12vw] sm:text-[10vw] lg:text-[6vw] leading-[0.9] tracking-tight text-white">
                   HENRIQUE
                   <br />
                   <span className="text-toxic-lime">FERNANDES</span>
