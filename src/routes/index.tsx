@@ -5,7 +5,30 @@ import Contact from "@/components/sections/Contact";
 import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 
-export const Route = createFileRoute("/")({ component: App });
+const jsonLd = JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Henrique Fernandes",
+	url: "https://henriquesf.me",
+	sameAs: [
+		"https://github.com/HenriqueSFernandes",
+		"https://www.linkedin.com/in/-henriquesfernandes/",
+	],
+	jobTitle: "Software Engineer",
+	email: "henriquesardofernandes@gmail.com",
+});
+
+export const Route = createFileRoute("/")({
+	head: () => ({
+		scripts: [
+			{
+				type: "application/ld+json",
+				children: jsonLd,
+			},
+		],
+	}),
+	component: App,
+});
 
 function App() {
 	return (
