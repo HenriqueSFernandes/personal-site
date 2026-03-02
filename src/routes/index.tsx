@@ -1,4 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
+import {
+  Zap,
+  Server,
+  Route as RouteIcon,
+  Shield,
+  Waves,
+  Sparkles,
+} from 'lucide-react'
 import Navigation from "@/components/Navigation";
 import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
@@ -9,8 +17,10 @@ import Projects from "@/components/sections/Projects";
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
+
   return (
-      <div className="relative min-h-screen bg-dark-void">
+
+    <div className="relative min-h-screen bg-dark-void">
       <div className="grain-overlay" />
 
       <Navigation />

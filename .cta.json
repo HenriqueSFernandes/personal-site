@@ -2,16 +2,17 @@
   "projectName": "personal-site",
   "mode": "file-router",
   "typescript": true,
-  "packageManager": "npm",
-  "includeExamples": false,
   "tailwind": true,
-  "addOnOptions": {},
-  "envVarValues": {},
+  "packageManager": "npm",
   "git": false,
+  "install": true,
+  "addOnOptions": {},
+  "includeExamples": true,
+  "envVarValues": {},
   "routerOnly": false,
   "version": 1,
-  "framework": "react",
+  "framework": "react-cra",
   "chosenAddOns": [
-    "biome"
+    "cloudflare"
   ]
 }
