@@ -2,6 +2,7 @@
 
 import { FileText, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { sendContactEmail } from "@/server/sendEmail";
 
 const Contact = () => {
 	const sectionRef = useRef<HTMLElement>(null);
@@ -11,9 +12,9 @@ const Contact = () => {
 		email: "",
 		message: "",
 	});
-	// biome-ignore lint/correctness/noUnusedVariables: <i have not implemented form submission yet>
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
+	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -35,9 +36,23 @@ const Contact = () => {
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-		setSubmitted(true);
+		setIsSubmitting(true);
+		setError(null);
 
-		setTimeout(() => setSubmitted(false), 3000);
+		try {
+			const result = await sendContactEmail({ data: formData });
+			if (result.success) {
+				setSubmitted(true);
+				setFormData({ name: "", email: "", message: "" });
+				setTimeout(() => setSubmitted(false), 5000);
+			} else {
+				setError(result.error ?? "Something went wrong. Please try again.");
+			}
+		} catch {
+			setError("Something went wrong. Please try again.");
+		} finally {
+			setIsSubmitting(false);
+		}
 	};
 
 	const handleChange = (
@@ -229,11 +244,19 @@ const Contact = () => {
 
 								<button
 									type="submit"
-									disabled={submitted}
+									disabled={isSubmitting || submitted}
 									className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-toxic-lime text-dark-void rounded-lg font-body font-medium hover:bg-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
 								>
 									{submitted ? (
-										<p>Still building this - use email for now!</p>
+										<>
+											<span className="w-2 h-2 rounded-full bg-dark-void" />
+											MESSAGE SENT!
+										</>
+									) : isSubmitting ? (
+										<>
+											<span className="w-4 h-4 border-2 border-dark-void/30 border-t-dark-void rounded-full animate-spin" />
+											SENDING...
+										</>
 									) : (
 										<>
 											<Send size={18} />
@@ -244,6 +267,12 @@ const Contact = () => {
 										</>
 									)}
 								</button>
+
+								{error ? (
+									<p className="font-body text-sm text-red-400 text-center">
+										{error}
+									</p>
+								) : null}
 							</form>
 						</div>
 					</div>
