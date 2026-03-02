@@ -5,20 +5,18 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "personal-site",
-  "workers_dev": false,
-  "preview_urls": false,
+	"workers_dev": false,
+	"preview_urls": false,
 	"compatibility_date": "2025-09-02",
-	"compatibility_flags": [
-		"nodejs_compat"
-	],
+	"compatibility_flags": ["nodejs_compat"],
 	"main": "@tanstack/react-start/server-entry",
 	"observability": {
 		"enabled": true
 	},
-  "routes": [
-    {
-      "pattern": "henriquesf.me",
-      "custom_domain": true
-    }
-  ]
+	"routes": [
+		{
+			"pattern": "henriquesf.me",
+			"custom_domain": true
+		}
+	]
 }
