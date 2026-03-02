@@ -42,8 +42,3 @@ next-env.d.ts
 
 .open-next
 .dev.vars
-
-.direnv/
-
-personal-site/.content-collections/
-personal-site/.vscode/
