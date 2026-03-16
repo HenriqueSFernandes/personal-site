@@ -12,7 +12,8 @@ import {
 	Network,
 	Wrench,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { education } from "@/data/education";
 
 interface SkillCategory {
 	label: string;
@@ -173,47 +174,26 @@ const About = () => {
 									EDUCATION
 								</h3>
 								<div className="space-y-4">
-									<div>
-										<div className="flex items-center justify-between">
-											<span className="font-body text-white font-medium">
-												MSc in Informatics and Computing Engineering
-											</span>
-											<span className="font-body text-sm text-toxic-lime">
-												2025 - Present
-											</span>
-										</div>
-										<span className="font-body text-sm text-text-secondary">
-											FEUP - Faculty of Engineering, University of Porto
-										</span>
-									</div>
-									<div className="w-full h-px bg-white/10" />
-									<div>
-										<div className="flex items-center justify-between">
-											<span className="font-body text-white font-medium">
-												BSc in Informatics and Computing Engineering
-											</span>
-											<span className="font-body text-sm text-toxic-lime">
-												2022 - 2025
-											</span>
-										</div>
-										<span className="font-body text-sm text-text-secondary">
-											FEUP - Faculty of Engineering, University of Porto
-										</span>
-									</div>
-									<div className="w-full h-px bg-white/10" />
-									<div>
-										<div className="flex items-center justify-between">
-											<span className="font-body text-white font-medium">
-												Classical Piano (5th Degree)
-											</span>
-											<span className="font-body text-sm text-toxic-lime">
-												2013 - 2019
-											</span>
-										</div>
-										<span className="font-body text-sm text-text-secondary">
-											Conservatório de Música de Aveiro Calouste Gulbenkian
-										</span>
-									</div>
+									{education.map((entry, index) => (
+										<React.Fragment key={entry.degree}>
+											<div>
+												<div className="flex items-center justify-between">
+													<span className="font-body text-white font-medium">
+														{entry.degree}
+													</span>
+													<span className="font-body text-sm text-toxic-lime">
+														{entry.startYear} - {entry.endYear ?? "Present"}
+													</span>
+												</div>
+												<span className="font-body text-sm text-text-secondary">
+													{entry.institution}
+												</span>
+											</div>
+											{index < education.length - 1 && (
+												<div className="w-full h-px bg-white/10" />
+											)}
+										</React.Fragment>
+									))}
 								</div>
 							</div>
 						</div>
