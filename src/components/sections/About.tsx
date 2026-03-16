@@ -81,7 +81,7 @@ const About = () => {
 		{
 			title: "Gaming",
 			description:
-				"Whether it's immersing myself in a game with a good story or enjoying the challenge of competitive titles, I find gaming is a great way to unwind and appreciate interactive storytelling. My current favorite is Clair Obscur: Expedition 33.",
+				"Whether it's immersing myself in a game with a good story or enjoying the challenge of competitive titles, I find gaming is a great way to unwind and appreciate interactive storytelling. My current favorite is Clair Obscure: Expedition 33.",
 			icon: <Gamepad2 size={24} />,
 		},
 		{
@@ -198,6 +198,20 @@ const About = () => {
 										</div>
 										<span className="font-body text-sm text-text-secondary">
 											FEUP - Faculty of Engineering, University of Porto
+										</span>
+									</div>
+									<div className="w-full h-px bg-white/10" />
+									<div>
+										<div className="flex items-center justify-between">
+											<span className="font-body text-white font-medium">
+												Classical Piano (5th Degree)
+											</span>
+											<span className="font-body text-sm text-toxic-lime">
+												2013 - 2019
+											</span>
+										</div>
+										<span className="font-body text-sm text-text-secondary">
+											Conservatório de Música de Aveiro Calouste Gulbenkian
 										</span>
 									</div>
 								</div>

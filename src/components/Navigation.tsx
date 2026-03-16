@@ -1,11 +1,14 @@
 "use client";
 
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 import { FileText, Linkedin, Mail, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Navigation = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const navigate = useNavigate();
+	const pathname = useRouterState({ select: (s) => s.location.pathname });
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -17,10 +20,22 @@ const Navigation = () => {
 	}, []);
 
 	const scrollToSection = (id: string) => {
-		const element = document.getElementById(id);
-		if (element) {
-			element.scrollIntoView({ behavior: "smooth" });
-			setIsMobileMenuOpen(false);
+		setIsMobileMenuOpen(false);
+		if (pathname === "/") {
+			const element = document.getElementById(id);
+			if (element) {
+				element.scrollIntoView({ behavior: "smooth" });
+			}
+		} else {
+			navigate({ to: "/", hash: id });
+		}
+	};
+
+	const handleLogoClick = () => {
+		if (pathname === "/") {
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		} else {
+			navigate({ to: "/" });
 		}
 	};
 
@@ -44,7 +59,7 @@ const Navigation = () => {
 					<div className="flex items-center justify-between h-16 lg:h-20">
 						<button
 							type="button"
-							onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+							onClick={handleLogoClick}
 							className="font-display text-xl lg:text-2xl tracking-wider text-white hover:text-toxic-lime transition-colors duration-300"
 						>
 							HENRIQUE<span className="text-toxic-lime">.</span>
