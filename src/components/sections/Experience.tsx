@@ -1,6 +1,13 @@
 import { Briefcase, FlaskConical, Users } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { type Experience, experiences } from "@/data/experience";
+import {
+	type Experience,
+	type ExperienceStatus,
+	experiences,
+	formatDate,
+	getExperienceStatus,
+	sortExperiences,
+} from "@/data/experience";
 
 const TYPE_META = {
 	work: {
@@ -17,6 +24,24 @@ const TYPE_META = {
 	},
 } as const;
 
+const STATUS_META: Record<
+	ExperienceStatus,
+	{ label: string; colorClass: string }
+> = {
+	upcoming: {
+		label: "UPCOMING",
+		colorClass: "bg-upcoming/10 border-upcoming/30 text-upcoming",
+	},
+	current: {
+		label: "PRESENT",
+		colorClass: "bg-toxic-lime/10 border-toxic-lime/30 text-toxic-lime",
+	},
+	past: {
+		label: "",
+		colorClass: "",
+	},
+};
+
 function TimelineCard({
 	experience,
 	index,
@@ -28,7 +53,8 @@ function TimelineCard({
 	isVisible: boolean;
 	side: "left" | "right";
 }) {
-	const isOngoing = experience.endDate === null;
+	const status = getExperienceStatus(experience);
+	const meta = STATUS_META[status];
 	const { icon: Icon, label } =
 		TYPE_META[experience.type as keyof typeof TYPE_META];
 
@@ -49,10 +75,11 @@ function TimelineCard({
 							{label}
 						</span>
 					</div>
-					{isOngoing ? (
-						<span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-toxic-lime/10 border border-toxic-lime/30 rounded text-xs font-body text-toxic-lime tracking-widest shrink-0">
-							<span className="w-1.5 h-1.5 rounded-full bg-toxic-lime animate-pulse" />
-							PRESENT
+					{meta.label ? (
+						<span
+							className={`inline-flex items-center gap-1.5 px-2.5 py-1 border rounded text-xs font-body tracking-widest shrink-0 ${meta.colorClass}`}
+						>
+							{meta.label}
 						</span>
 					) : null}
 				</div>
@@ -65,7 +92,8 @@ function TimelineCard({
 				</p>
 
 				<p className="font-body text-xs text-text-secondary/60 tracking-wide mb-3">
-					{experience.startDate} — {experience.endDate ?? "Present"}
+					{formatDate(experience.startDate)} -{" "}
+					{experience.endDate ? formatDate(experience.endDate) : "Present"}
 				</p>
 
 				{experience.description ? (
@@ -78,14 +106,16 @@ function TimelineCard({
 	);
 }
 
-function TimelineNode({ isOngoing }: { isOngoing: boolean }) {
+function TimelineNode({ status }: { status: ExperienceStatus }) {
+	const nodeClass = {
+		upcoming: "border-toxic-lime bg-dark-void",
+		current: "border-toxic-lime bg-toxic-lime",
+		past: "border-toxic-lime bg-dark-void",
+	}[status];
+
 	return (
 		<div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center justify-center z-10">
-			<div
-				className={`w-3 h-3 rounded-full border-2 border-toxic-lime ${
-					isOngoing ? "bg-toxic-lime pulse-glow" : "bg-dark-void"
-				}`}
-			/>
+			<div className={`w-3 h-3 rounded-full border-2 ${nodeClass}`} />
 		</div>
 	);
 }
@@ -107,6 +137,8 @@ export default function ExperienceSection() {
 		if (sectionRef.current) observer.observe(sectionRef.current);
 		return () => observer.disconnect();
 	}, []);
+
+	const sortedExperiences = sortExperiences(experiences);
 
 	return (
 		<section
@@ -134,7 +166,7 @@ export default function ExperienceSection() {
 						}`}
 					>
 						<span className="font-body text-sm text-toxic-lime tracking-widest">
-							WHERE I'VE BEEN
+							WHERE I&apos;VE BEEN
 						</span>
 						<h2 className="font-display text-5xl sm:text-6xl lg:text-7xl text-white mt-2">
 							MY <span className="text-toxic-lime">EXPERIENCE</span>
@@ -145,16 +177,17 @@ export default function ExperienceSection() {
 						<div className="hidden lg:block absolute left-1/2 -translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
 
 						<div className="flex flex-col gap-10 lg:gap-0">
-							{experiences.map((exp, index) => {
+							{sortedExperiences.map((exp, index) => {
 								const side: "left" | "right" =
 									index % 2 === 0 ? "left" : "right";
+								const status = getExperienceStatus(exp);
 
 								return (
 									<div
 										key={exp.id}
 										className="relative lg:grid lg:grid-cols-2 lg:gap-0 lg:mb-10"
 									>
-										<TimelineNode isOngoing={exp.endDate === null} />
+										<TimelineNode status={status} />
 
 										{side === "left" ? (
 											<>
