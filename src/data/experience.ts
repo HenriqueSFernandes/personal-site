@@ -116,7 +116,7 @@ export const experiences: Experience[] = [
 		description:
 			"Manage project scope, kick off new initiatives, and support ongoing technical work. Contribute to the development of UNI, a mobile app for student services covering schedules, exams, and dining. Develop and maintain infrastructure and DevOps for backend systems on the NIployments project.",
 	},
-  {
+	{
 		id: "acmfeup-member",
 		title: "Member",
 		organization: "ACM FEUP",
@@ -125,7 +125,7 @@ export const experiences: Experience[] = [
 		endDate: null,
 		description:
 			"After being part of the board for 3 years, I continue to contribute to ACM FEUP as a regular member, supporting the association's mission and activities in a more flexible capacity.",
-  },
+	},
 	{
 		id: "acmfeup-president-ga-head-dev",
 		title: "President of the General Assembly & Head of Development",
