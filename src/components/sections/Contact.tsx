@@ -168,11 +168,11 @@ const Contact = () => {
 
 							<div className="mt-10 p-6 border-l-2 border-toxic-lime bg-white/5">
 								<p className="font-body text-text-secondary italic">
-									&quot;The best way to predict the future is to implement
+									&quot;The best way to predict the future is to invent
 									it.&quot;
 								</p>
 								<span className="font-body text-sm text-toxic-lime mt-2 block">
-									— David Heinemeier Hansson
+									— Alan Kay
 								</span>
 							</div>
 						</div>
