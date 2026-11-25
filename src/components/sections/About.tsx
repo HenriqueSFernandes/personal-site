@@ -82,7 +82,7 @@ const About = () => {
 		{
 			title: "Gaming",
 			description:
-				"Whether it's immersing myself in a game with a good story or enjoying the challenge of competitive titles, I find gaming is a great way to unwind and appreciate interactive storytelling. My current favorite is Clair Obscure: Expedition 33.",
+				"Whether it's immersing myself in a game with a good story or enjoying the challenge of competitive titles, I find gaming is a great way to unwind and appreciate interactive storytelling. My current favorite is Clair Obscur: Expedition 33.",
 			icon: <Gamepad2 size={24} />,
 		},
 		{
